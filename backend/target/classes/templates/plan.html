@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/style.css}">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Source+Serif+Pro&display=swap"
+      rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Football APP</title>
+
+</head>
+<body>
+
+<form th:each="league: ${leaguesListt.getApi().getLeagues()}" style="position: center">
+    <div class="card">
+    <p><b>League name:</b></p>
+    <p th:text="${league.name}"></p>
+    <p><b>League country:</b></p>
+    <p th:text="${league.country}"></p>
+    <p><b>Season: </b></p>
+    <p th:text="${league.season}"></p>
+    <img style="width: auto;height: auto"
+         th:src="${league.getLogo()}">
+        <p><a style="text-align: center" class="button1 button" th:href="@{leaguesFixturesByIdGet/{id}(id=${league.leagueId})}">Get Leauge fixtures</a></p>
+    </div>
+</form>
+</body>
+</html>
