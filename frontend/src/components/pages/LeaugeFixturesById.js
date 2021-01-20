@@ -1,16 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 import '../../App.css';
 import '../LeagueFixtureById.css'
 
 class LeaugeFixturesById extends Component {
 
+    
+    
     constructor(props){
         super(props);
         this.state ={
-            count: 0
+            count: 0,
+            id: null
         }
     }
 
+    componentDidMount(){
+        let url = window.location.pathname;
+        var parts = url.split('/');
+        var answer = parts[parts.length - 1];
+
+        console.log(answer);
+        console.log(parts);
+        this.setState({id: answer});
+    }
     
     handleSubmit = (event) =>{
         event.preventDefault()
@@ -36,6 +48,7 @@ class LeaugeFixturesById extends Component {
         this.setState({ count: this.state.count - 1})
     }
 
+
     render(){
         const {count} = this.state
         return(
@@ -49,7 +62,7 @@ class LeaugeFixturesById extends Component {
                         <button onClick={this.increment} className="plus_minus_button">+</button>
                         <button onClick={this.decrement} className="plus_minus_button">-</button>
                     </div>
-                <a href={"/LeagueFixture/"+"2"+"/"+this.state.count} className="button1">Submit</a>
+                <a href={"/LeagueFixture/"+this.state.id+"/"+this.state.count} className="button1">Submit</a>
                 </div>
             </div>
         </>

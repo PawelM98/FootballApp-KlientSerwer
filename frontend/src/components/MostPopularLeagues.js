@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MostPopularCardItem from './MostPopularCardItem'
 import './MostPopularLeagues.css'
-import axios from '../../axios-notebook'
+import axios from '../axios-notebook'
 
 
 function MostPopularLeagues() {
