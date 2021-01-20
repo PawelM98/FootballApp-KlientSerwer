@@ -44,9 +44,6 @@ public class Start {
 //                    }
 //                }
 //            }
-//        SavedFixture savedFixture = new SavedFixture(592308);
-//        fixtureRepo.save(savedFixture);
-//        System.out.println(footballClient.getFixtureByFixtureId(savedFixture.getFixtureId()).getHomeTeam().getTeamName());
     }
 //    @EventListener(ApplicationReadyEvent.class)
 //    public void getSomething(){

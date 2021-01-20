@@ -15,16 +15,19 @@ video{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
 }
 
 .hero-container > h1 {
     color: #fff;
-    font-size: 100px;
-    margin-top: -100px;
+    font-size: 90px;
+    margin-top: -300px;
 }
 
+.hero-container > h2 {
+    color: #fff;
+    font-size: 70px;
+}
 .hero-container > p {
     margin-top: 8px;
     color: #fff;

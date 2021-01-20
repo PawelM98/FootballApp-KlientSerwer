@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import '../../App.css';
-import Footer from '../Footer';
-import axios from 'axios';
-import MostPopularCardItem from '../MostPopularCardItem'
-import '../MostPopularLeagues.css'
+import axios from '../../axios-notebook';
+import FoundByCountryCardItem from '../FoundByCountryCardItem';
+import '../FoundByCountryCardItem.css';
+import '../FiveMostPopular.css';
+
 
 
 function FiveMostPopular() {
@@ -23,7 +24,7 @@ function FiveMostPopular() {
 
     const country = newUrl1
     const season = newUrl2
-    const url = `http://localhost:8080/findLeaguesByCountryAndSeason/${country}/${season}`
+    const url = `/findLeaguesByCountryAndSeason/${country}/${season}`
     const [leaguesSearchList, setLeagueSearchList] = useState(null)
     let content = null
 
@@ -34,11 +35,12 @@ function FiveMostPopular() {
         })
     }, [url])
 
+
     if(leaguesSearchList){
         content=
         <div>
                 {leaguesSearchList.map((leauge)=>{
-                    return         <MostPopularCardItem
+                    return         <FoundByCountryCardItem
                     src={leauge.logo}
                     text={leauge.country}
                     label={leauge.name}
@@ -50,12 +52,16 @@ function FiveMostPopular() {
 
     return(
         <>
-            <div className="cards__container_mp">
-                <div className="cards__Wrapper_mp">
+        <div className="main_container">
+        <img src="/images/boisko.jpg" className="fixtures_img"/>
+            <div className="cards__container_fb">
+                <div className="cards__wrapper_fb">
+                    <ul className="cards__item_fb">
                         {content}
+                    </ul>
                 </div>
-            </div>
-            <Footer/>
+             </div>
+        </div>
         </>
     )
 }

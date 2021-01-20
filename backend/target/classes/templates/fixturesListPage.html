@@ -20,9 +20,7 @@
         <p th:text="${fixture.getAwayTeam().teamName}"></p>
         <p><b>Score: </b></p>
         <p th:text="${fixture.getScore().fulltime}"></p>
-        <form method="post">
-<!--        <p><a style="text-align: center" class="button1 button" th:href="@{saveFixture/{id}(id=${fixture.fixtureId})}">Save Fixture</a></p>-->
-        </form>
+        <p><a style="text-align: center" class="button1 button" th:href="@{/{id}(id=${fixture.fixtureId})}">Save Fixture</a></p>
     </div>
 </form>
 </body>

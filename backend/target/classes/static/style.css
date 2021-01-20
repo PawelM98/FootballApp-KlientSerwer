@@ -48,16 +48,20 @@ a {
     text-align: center;
 }
 
+
+
 .button1 {
     background-color: white;
     color: black;
     border: 2px solid blue;
 }
 
+
 .button1:hover {
     background-color: blue;
     color: white;
 }
+
 
 .container{
     max-width: 1170px;

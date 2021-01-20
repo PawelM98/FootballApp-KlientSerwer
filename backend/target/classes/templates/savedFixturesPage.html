@@ -12,14 +12,14 @@
 <form th:each="fixture: ${savedFixturesList}" style="position: center">
     <div class="card">
         <p><b>Event Date:</b></p>
-        <p th:text="${fixture.eventDate}"></p>
+        <p th:text="${fixture.getApi().getFixtures().get(0).getEventDate()}"></p>
         <p><b>Home Team:</b></p>
-        <p th:text="${fixture.getHomeTeam().teamName}"></p>
+        <p th:text="${fixture.getApi().getFixtures().get(0).getHomeTeam().teamName}"></p>
         <p><b>Away Team: </b></p>
-        <p th:text="${fixture.getAwayTeam().teamName}"></p>
+        <p th:text="${fixture.getApi().getFixtures().get(0).getAwayTeam().teamName}"></p>
         <p><b>Score: </b></p>
-        <p th:text="${fixture.getScore().fulltime}"></p>
-        <p><a style="text-align: center" class="button1 button" th:href="@{deleteFixture/{id}(id=${fixture.fixtureId})}">Delete Fixture</a></p>
+        <p th:text="${fixture.getApi().getFixtures().get(0).getScore().fulltime}"></p>
+        <p><a style="text-align: center" class="button1 button" th:href="@{deleteFixture/{id}(id=${fixture.getApi().getFixtures().get(0).fixtureId})}">Delete Fixture</a></p>
 
     </div>
 </form>

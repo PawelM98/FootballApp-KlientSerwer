@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useForceUpdate } from 'react'
 import '../../App.css';
-import Footer from '../Footer';
-import axios from 'axios';
+import axios from '../../axios-notebook';
 import '../MostPopularLeagues.css'
-import { render } from '@testing-library/react';
+import '../SavedFixtures.css'
  
  
 function SavedFixture() {
  
 
-    const url = 'http://localhost:8080/getFixtures'
+    const url = '/getFixtures'
     const [fixtureListFromDb, setfixtureListFromDb] = useState(null)
     let content = null
  
@@ -21,7 +20,7 @@ function SavedFixture() {
     }, [url])
  
     function deleteFixture(id) {
-        axios.delete(`http://localhost:8080/deleteFixture/${id}`);
+        axios.delete(`/deleteFixture/${id}`);
         window.location.reload(false);
     }
 
@@ -29,11 +28,23 @@ function SavedFixture() {
         content=
         <div>
                 {fixtureListFromDb.map((fixture)=>{
-                    return <div style={{border: '1px solid red'}}>
-                        <p>Home Team: {fixture.homeTeam}</p>
-                        <p>Away Team: {fixture.awayTeam}</p>
-                        <p>Score Fulltime: {fixture.fullScore}</p>
-                        <button onClick={() => deleteFixture(fixture.id)}>Usuń</button>
+                    return <div className="container">
+                    <div className="main_card">
+                        <div className="left_card">
+                            <img src={fixture.homeTeamLogo} className="round"/>
+                            <p>{fixture.homeTeam}</p>
+                        </div>
+                        <div className="center_card">
+                            <p>Event Date: {fixture.eventDate}</p>
+                            <h1>VS</h1>
+                            <p className="fullscore">Full Score: {fixture.fullScore}</p> 
+                        </div>
+                        <div className="right_card"> 
+                        <img src={fixture.awayTeamLogo} className="round"/>
+                        <p>{fixture.awayTeam}</p>
+                        </div>
+                        </div>
+                    <button onClick={() => deleteFixture(fixture.id)} className="save_button">Delete</button>
                     </div>
                 })}
         </div>
@@ -41,9 +52,9 @@ function SavedFixture() {
     return(
         <>
             <div>
-                    {content}
+                <img src="/images/boisko.jpg" className="fixtures_img"/>
+                {content}
             </div>
-            <Footer/>
         </>
     )
 }

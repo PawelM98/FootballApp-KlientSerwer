@@ -1,6 +1,8 @@
 package com.michcinski.demo.service;
 
 import com.michcinski.demo.client.FootballClient;
+import com.michcinski.demo.model.Fixture;
+import com.michcinski.demo.model.FixturesModel;
 import com.michcinski.demo.model.League;
 import com.michcinski.demo.model.LeaugesModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +43,18 @@ public class FootballServiceImpl implements FootballService{
             }
         }
         return mostPopularLeagues;
+    }
+
+    @Override
+    public List<League> getLeaguesListByCountryAndSeason(String country, String season) {
+
+        LeaugesModel leaugesModel = footballClient.getLeaugesByCountryAndSeason(country,season);
+        return new ArrayList<>(leaugesModel.getApi().getLeagues());
+    }
+
+    @Override
+    public List<Fixture> getFixturesByLeagueId(Long id, int number) {
+        FixturesModel fixturesModel = footballClient.getFixturesByLeagueId(id,number);
+        return new ArrayList<>(fixturesModel.getApi().getFixtures());
     }
 }

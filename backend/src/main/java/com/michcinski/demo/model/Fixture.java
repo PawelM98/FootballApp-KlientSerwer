@@ -2,6 +2,7 @@
 package com.michcinski.demo.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -9,6 +10,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.michcinski.demo.model.fixture.Lineups;
+import com.michcinski.demo.model.fixture.Player;
+import com.michcinski.demo.model.fixture.Statistics;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -29,7 +33,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "awayTeam",
     "goalsHomeTeam",
     "goalsAwayTeam",
-    "score"
+    "score",
+        "events",
+        "lineups",
+        "statistics",
+        "players"
 })
 public class Fixture {
 
@@ -69,6 +77,14 @@ public class Fixture {
     private Integer goalsAwayTeam;
     @JsonProperty("score")
     private Score score;
+    @JsonProperty("events")
+    private List<Event> events = null;
+    @JsonProperty("lineups")
+    private Lineups lineups;
+    @JsonProperty("statistics")
+    private Statistics statistics;
+    @JsonProperty("players")
+    private List<Player> players = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -252,6 +268,46 @@ public class Fixture {
         this.score = score;
     }
 
+    @JsonProperty("events")
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    @JsonProperty("events")
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
+
+    @JsonProperty("lineups")
+    public Lineups getLineups() {
+        return lineups;
+    }
+
+    @JsonProperty("lineups")
+    public void setLineups(Lineups lineups) {
+        this.lineups = lineups;
+    }
+
+    @JsonProperty("statistics")
+    public Statistics getStatistics() {
+        return statistics;
+    }
+
+    @JsonProperty("statistics")
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
+    }
+
+    @JsonProperty("players")
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    @JsonProperty("players")
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
@@ -262,4 +318,32 @@ public class Fixture {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "Fixture{" +
+                "fixtureId=" + fixtureId +
+                ", leagueId=" + leagueId +
+                ", league=" + league +
+                ", eventDate='" + eventDate + '\'' +
+                ", eventTimestamp=" + eventTimestamp +
+                ", firstHalfStart=" + firstHalfStart +
+                ", secondHalfStart=" + secondHalfStart +
+                ", round='" + round + '\'' +
+                ", status='" + status + '\'' +
+                ", statusShort='" + statusShort + '\'' +
+                ", elapsed=" + elapsed +
+                ", venue='" + venue + '\'' +
+                ", referee='" + referee + '\'' +
+                ", homeTeam=" + homeTeam +
+                ", awayTeam=" + awayTeam +
+                ", goalsHomeTeam=" + goalsHomeTeam +
+                ", goalsAwayTeam=" + goalsAwayTeam +
+                ", score=" + score +
+                ", events=" + events +
+                ", lineups=" + lineups +
+                ", statistics=" + statistics +
+                ", players=" + players +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

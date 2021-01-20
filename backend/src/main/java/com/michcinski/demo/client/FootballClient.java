@@ -44,16 +44,16 @@ public class FootballClient {
         return exchange.getBody();
     }
 
-    public Fixture getFixtureByFixtureId(int id){
+    public FixturesModel getFixtureByFixtureId(int id){
         MultiValueMap<String,String> headers = new HttpHeaders();
         headers.set("x-rapidapi-key", "af6c5c87bcmsh4eeb2aeac728111p14ba02jsn7fdd65ec5b91");
         headers.set("x-rapidapi-host", "api-football-v1.p.rapidapi.com");
         HttpEntity httpEntity = new HttpEntity(headers);
 
-        ResponseEntity<Fixture> exchange = restTemplate.exchange("https://api-football-v1.p.rapidapi.com/v2/fixtures/id/"+id,
+        ResponseEntity<FixturesModel> exchange = restTemplate.exchange("https://api-football-v1.p.rapidapi.com/v2/fixtures/id/"+id,
                 HttpMethod.GET,
                 httpEntity,
-                Fixture.class);
+                FixturesModel.class);
         return exchange.getBody();
     }
 }

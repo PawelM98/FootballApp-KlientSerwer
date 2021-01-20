@@ -1,0 +1,123 @@
+
+.cards {
+    padding: 4rem;
+    background: rgb(221, 214, 214);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .cards__container_fb {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    max-width: 1030px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: -100px;
+  }
+  
+  .cards__wrapper_fb {
+    position: relative;
+    margin: 10px 0 100px;
+  }
+  
+  .cards__items_fb {
+    margin-bottom: 24px;
+  }
+  
+  .cards__item_fb {
+    display:inline-block;
+    flex: 1;
+    margin: 10px 10px;
+    border-radius: 10px;
+    background-color:rgba(56, 125, 255, 0.5);
+  }
+  
+  .cards__item__link_fb {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(3, 3, 3, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(1, 146, 37, 0.017));
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+  
+  .cards__item__pic-wrap_fb {
+    position: relative;
+    width: 100%;
+    padding-top: 67%;
+    overflow: hidden;
+  }
+  
+  .fade-img {
+    animation-name: fade-img;
+    animation-duration: 2s;
+  }
+  
+  .cards__item__pic-wrap_fb::after {
+    content: attr(data-category);
+    position: absolute;
+    bottom: 0;
+    margin-left: 10px;
+    padding: 6px 8px;
+    max-width: calc((100%) - 60px);
+    font-size: 60%;
+    font-weight: 700;
+    color: #fff;
+    background-color: #1f98f4;
+    box-sizing: border-box;
+  }
+  
+  .cards__item__img_fb {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: all 0.2s linear;
+  }
+  
+  .cards__item__img_fb:hover {
+    transform: scale(1.1);
+  }
+  
+  .cards__item__info_fb {
+    padding: 20px 30px 30px;
+  }
+  
+  .cards__item__text_fb {
+    color: #f7f7f7;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .content__blog__container {
+      width: 84%;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    .cards__items_fb {
+      display: flex;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .cards__item_fb {
+      margin-bottom: 2rem;
+    }
+  }

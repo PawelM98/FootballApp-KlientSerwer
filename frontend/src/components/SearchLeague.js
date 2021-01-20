@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import './SearchLeague.css'
+import './Footer.css';
+
 
 class SearchLeague extends Component{
 
@@ -27,12 +29,15 @@ class SearchLeague extends Component{
     render(){
         return(
             <div className='container'> 
-                <h1>Podaj nazwę kraju oraz rok sezonu</h1>
+            <div className='hero-container-searchleague'>
+                <h1>Find Your league</h1>
+                <h2>Type Country and Season below</h2>
                 <form className='forma' onSubmit={this.handleSubmit}>
-                <p><input type='text' placeholder='Country' name='country' onChange={this.handleInputChange}/></p>
-                <p><input type='text' placeholder='Season' name='season' onChange={this.handleInputChange}/></p>
-                 <button><a href={"/getFiveMostPopularById/" + this.state.country + "/" + this.state.season}>Send Message</a></button>
+                <p><input className='footer-input' type='text' placeholder='Country' name='country' onChange={this.handleInputChange}/></p>
+                <p><input className='footer-input' type='text' placeholder='Season' name='season' onChange={this.handleInputChange}/></p>
+                 <a href={"/getFiveMostPopularById/" + this.state.country + "/" + this.state.season} className="button1">Find</a>
                 </form>
+                </div>
             </div>
         )
     }

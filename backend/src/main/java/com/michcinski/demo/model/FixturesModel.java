@@ -41,4 +41,11 @@ public class FixturesModel {
         this.additionalProperties.put(name, value);
     }
 
+    @Override
+    public String toString() {
+        return "FixturesModel{" +
+                "api=" + api +
+                ", additionalProperties=" + additionalProperties +
+                '}';
+    }
 }

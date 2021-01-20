@@ -18,7 +18,7 @@ function CardItem(props) {
             <figure className="cards__item__pic-wrap_mp" data-category={props.label}>
                 <img src={props.src} alt="Football image" className="cards__item__img_mp"/>
             </figure>
-            <ColoredLine color="blue" />
+            <ColoredLine color="white" />
             <div className="cards__item__info_mp">
                 <h5 className="cards__item__text_mp">{props.text}</h5>
             </div>

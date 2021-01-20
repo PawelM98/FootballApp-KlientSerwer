@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import '../../App.css';
-import Footer from '../Footer';
-
+import '../LeagueFixtureById.css'
 
 class LeaugeFixturesById extends Component {
 
@@ -31,6 +30,9 @@ class LeaugeFixturesById extends Component {
     }
     
     decrement = () => {
+        if(this.state.count <= 0){
+            this.state.count = 0
+        }else
         this.setState({ count: this.state.count - 1})
     }
 
@@ -39,17 +41,17 @@ class LeaugeFixturesById extends Component {
         return(
         <>
             <div className='main_div'>
+                <img src="../images/boisko.jpg" className="fixtures_img"/>
                 <h1>Choose how many Fixtures u want to get</h1>
-                <h2>Fixtures Number: {count}</h2>
                 <div className="center_div">
+                <h2>Fixtures Number: {count}</h2>
                     <div className="btn_div">
-                        <button onClick={this.increment}>+</button>
-                        <button onClick={this.decrement}>-</button>
+                        <button onClick={this.increment} className="plus_minus_button">+</button>
+                        <button onClick={this.decrement} className="plus_minus_button">-</button>
                     </div>
-                    <button><a href={"/LeagueFixture/"+"2"+"/"+this.state.count}>Submit</a></button>
+                <a href={"/LeagueFixture/"+"2"+"/"+this.state.count} className="button1">Submit</a>
                 </div>
             </div>
-            <Footer/>
         </>
         );
     }
