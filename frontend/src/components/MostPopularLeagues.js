@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import MostPopularCardItem from './MostPopularCardItem'
 import './MostPopularLeagues.css'
-import axios from 'axios'
+import axios from '../../axios-notebook'
 
 
 function MostPopularLeagues() {
-    const url = 'http://localhost:8080/all';
+    const url = '/all';
     const [leagues, setLeauge] = useState(null)
 
     let league1 = null
